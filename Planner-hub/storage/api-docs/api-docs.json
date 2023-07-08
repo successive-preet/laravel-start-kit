@@ -1,0 +1,48 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Apis",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/todos": {
+            "get": {
+                "tags": [
+                    "Todos"
+                ],
+                "summary": "Get list of todos",
+                "description": "Returns list of todos",
+                "operationId": "gettodosList",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key_security_example": []
+                    }
+                ]
+            }
+        }
+    },
+    "security": {
+        "passport": {
+            "type": "oauth2",
+            "description": "Laravel passport oauth2 security.",
+            "in": "header",
+            "scheme": "https",
+            "flows": {
+                "password": {
+                    "authorizationUrl": "http://localhost:8001/oauth/authorize",
+                    "tokenUrl": "http://localhost:8001/oauth/token",
+                    "refreshUrl": "http://localhost:8001/token/refresh",
+                    "scopes": []
+                }
+            }
+        }
+    }
+}
